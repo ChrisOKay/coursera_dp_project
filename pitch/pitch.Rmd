@@ -1,0 +1,35 @@
+---
+title: "Quakinator - your handy earthquake predictor"
+author: "Christian Karcher"
+date: "14 November 2017"
+output: slidy_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Ever wondered how much the earth is going to shake this year?
+
+No? Well, you should! And good news, everybody, now there's a tool for that: <https://chrisokay.shinyapps.io/quakinator/>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
