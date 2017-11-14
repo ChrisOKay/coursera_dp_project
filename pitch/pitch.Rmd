@@ -9,27 +9,43 @@ output: slidy_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Ever wondered how much the earth is going to shake this year?
+## Ever wondered how much the earth is going to shake next year?
 
 No? Well, you should! And good news, everybody, now there's a tool for that: <https://chrisokay.shinyapps.io/quakinator/>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+And not only that, you will be able to
 
-## Slide with Bullets
+- filter by Richter scale!
+- filter by year!
+- and (you guessed it) filter by **tsunamis**!
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
 
-## Slide with R Output
+## Filters you say?!
 
-```{r cars, echo = TRUE}
-summary(cars)
+Yes, friend, you heard right! The compelling language of R is able to filter!
+Let me demonstrate: By carefully reading the data, one is able to select certain characteristic data from it!
+
+```{r echo = TRUE}
+earthquakes <- read.csv(file='../shinyEarthquake.csv', sep = '\t')
+dim(earthquakes)
+tsuFilter = 'Tsu'
+filtered <- earthquakes[earthquakes$FLAG_TSUNAMI %in% tsuFilter,]
+dim(filtered)
 ```
+Unbelievable, right?
 
-## Slide with Plot
+## But what about the data?
 
-```{r pressure}
-plot(pressure)
-```
+The data has been carefully collected by reliable sources all over the planet. Either that, or I meanwhile have forgotten the original source, must have been taken from somewhere here: <https://earthquake.usgs.gov/data/data.php>
+
+I stripped most of the data without any Richter scale information and ended up with a dataset of 7000+ entries, which was suffice for this little project. Originally the data contained information about deaths and damages (which reminded me an awful lot of this "tornado project" from the cleaning data course), but I decided not to make things too complicated and stripped it down to "richter and tsunamis" only.
+
+## *Sigh* - can you at least show me the source code?
+
+Sure can do! The source code has been published to github and it should be avaiable here:
+
+<https://github.com/ChrisOKay/coursera_dp_project>
+
+*Thank you* for your attention and have a great time with the tool!
+
 
